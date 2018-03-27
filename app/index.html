@@ -26,62 +26,9 @@
 
 <body>
 
-    <!-- <div>
+    <div>
         <div ng-include="'layout/shell.html'"></div>
-    </div> -->
-
-    <nav class="navbar navbar-default">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-            expanded="false"
-                    aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Nile</a>
-            </div>
-
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-
-    <div class="container" ng-view>
-        <div class="well">
-            <h1>Hello World AngularJS application</h1>
-            <section ng-controller="HelloController as vm">
-                <h4>AngularJS Greeting</h4>
-                <label for="name">Type your name here:</label>
-                <input id=name type="text" ng-model="vm.myModel">
-                <p>Hello {{vm.myModel}}!</p>
-            </section>
-        </div>
-
-        <div class="well">
-            <h1>Test Toastr</h1>
-            <section ng-controller="ToastrController as vm">
-                <label for="message">Type your Toastr message here:</label>
-                <input id=message type="text" ng-model="vm.message">
-                <button ng-click="vm.info()" class="btn btn-info">Info</button>    
-                <button ng-click="vm.success()" class="btn btn-primary">Success</button>
-                <button ng-click="vm.error()" class="btn btn-danger">Error</button>
-            
-            </section>
-        </div>
-
-        <div class="well">
-            <h1>Test Spinner</h1>
-            <section ng-controller="TestSpinnerController as vm">
-                <label for="duration">Length of spinner in MS:</label>
-                <input id=duration type="text" ng-model="vm.duration">
-                <button ng-click="vm.startSpinner()" class="btn btn-primary">Start Spinner</button>
-            </section>
-        </div>
-
     </div>
-
 
 </body>
 
@@ -95,7 +42,7 @@
 
 <!-- Bootstrappinp -->
     <script src="app.module.js"></script>
-    <!-- <script src="config.route.js"></script> -->
+    <script src="config.route.js"></script>
 
 <!-- Reusable Blocks/Modules -->
     <script src="blocks/logger/logger.module.js"></script>
@@ -110,9 +57,13 @@
     <script src="core/config.js"></script>
 
 <!-- layout -->
-    <!-- <script src="layout/layout.module.js"></script> -->
+    <script src="layout/layout.module.js"></script>
+    <script src="layout/shell.controller.js"></script>
 
 <!-- widgets -->
+    <script src="widgets/widgets.module.js"></script>
+    <script src="widgets/spinner.directive.js"></script>
+    <script src="widgets/spinner.js"></script>
 
 <!-- features -->
 

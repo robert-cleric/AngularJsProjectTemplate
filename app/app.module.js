@@ -1,29 +1,30 @@
 (function () {
     
     angular.module('app', [
-        'app.core'
-        ])
-        .controller('HelloController', HelloController)
-        .controller('ToastrController', ToastrController)
-        .controller('TestSpinnerController', TestSpinnerController);
+        'app.core',
+        'app.widgets',
+        'ui.router',
+
+        /*
+        * Feature areas
+        */
+        'app.layout'
         
-    HelloController.$inject = ['logger'];
-    function HelloController(logger) {
+    ])
+        .controller('HomeController', HomeController);
+        
+    HomeController.$inject = ['logger', '$timeout', 'spinner'];
+    function HomeController(logger, $timeout, spinner) {
         var vm = this;
 
+        //Hello World
         vm.myModel = 'World';
-
-        logger.success('Home Controller Activated');
-
+        //logger.success('Home Controller Activated');
         //throw new Error('Test exception');
-    }
-    
-    ToastrController.$inject = ['logger'];
-    function ToastrController(logger) {
-        var vm = this;
 
+        //Toastr
         vm.message = 'Toast this message';
-
+        
         vm.info = function () {
             logger.info(vm.message);
         }
@@ -36,15 +37,17 @@
             logger.error(vm.message);
         }
 
-    }
-     
-    TestSpinnerController.$inject = [];
-    function TestSpinnerController() {
-        var vm = this;
+        //Spinner
+        vm.duration = '2000'; 
+        vm.startSpinner = function () {
+            spinner.spinnerShow();
 
-        vm.duration = '3000';
+            $timeout(function() {
+                spinner.spinnerHide();
+                }, vm.duration);
+            
+         }
 
-        
     }
     
-    })();
+})();
