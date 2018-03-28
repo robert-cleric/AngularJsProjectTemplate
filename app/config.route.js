@@ -21,9 +21,29 @@
                 controller: 'HomeController',
                 controllerAs: 'vm',
                 templateUrl: '/home/home.html'
+            })
+            .state('details', {
+                url: '/details',
+                controller: 'DetailsController',
+                controllerAs: 'vm',
+                templateUrl: '/details/details.html',
+                resolve: {
+                    dogs: dogService
+                }
             });
         
         $urlRouterProvider.otherwise('/');
+    }
+
+
+    dogService.$inject = ['dataService', 'spinner'];
+
+    function dogService(dataService, spinner) {
+        spinner.spinnerShow();
+        return dataService.getDogs()
+                .finally(function () {
+                    spinner.spinnerHide();
+                });
     }
     
 })();

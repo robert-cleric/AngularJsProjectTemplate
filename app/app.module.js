@@ -8,10 +8,12 @@
         /*
         * Feature areas
         */
-        'app.layout'
+        'app.layout',
+        'app.details'
         
     ])
         .controller('HomeController', HomeController);
+        
         
     HomeController.$inject = ['logger', '$timeout', 'spinner'];
     function HomeController(logger, $timeout, spinner) {
